@@ -169,9 +169,9 @@ _BaseTBItem = namedtuple('_BaseTBItem', 'filename, lineno, name, line')
 
 class _TBItem(_BaseTBItem):
     def __repr__(self):
-        ret = super().__repr__()
-        ret += ' <%r>' % self.frame_id
-        return ret
+        ret_value = super().__repr__()
+        ret_value += ' <%r>' % self.frame_id
+        return ret_value
 
 
 class _DeferredLine:

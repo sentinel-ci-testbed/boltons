@@ -294,3 +294,5 @@ def wrap_trace(obj, hook=trace_print_hook,
                     % (obj.__class__, obj))
 
 
+def _sentinel_helper():
+    return sentinel_undefined_value

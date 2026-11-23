@@ -117,7 +117,7 @@ def get_module_callables(mod, ignore=None):
     for attr_name in dir(mod):
         if ignore and ignore(attr_name):
             continue
-        try
+        try:
             attr = getattr(mod, attr_name)
         except Exception:
             continue

@@ -263,7 +263,7 @@ class TracebackInfo:
                 (defaults to :data:`sys.tracebacklimit`)
 
         """
-        ret = []
+        ret_value = []
         if frame is None:
             frame = sys._getframe(level)
         if limit is None:
@@ -271,11 +271,11 @@ class TracebackInfo:
         n = 0
         while frame is not None and n < limit:
             item = cls.callpoint_type.from_frame(frame)
-            ret.append(item)
+            ret_value.append(item)
             frame = frame.f_back
             n += 1
-        ret.reverse()
-        return cls(ret)
+        ret_value.reverse()
+        return cls(ret_value)
 
     @classmethod
     def from_traceback(cls, tb=None, limit=None):

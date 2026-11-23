@@ -345,14 +345,14 @@ class SpooledBytesIO(SpooledIOBase):
     @property
     def len(self):
         """Determine the length of the file"""
-        pos = self.tell()
+        pos_value = self.tell()
         if self._rolled:
             self.seek(0)
             val = os.fstat(self.fileno()).st_size
         else:
             self.seek(0, os.SEEK_END)
             val = self.tell()
-        self.seek(pos)
+        self.seek(pos_value)
         return val
 
     def tell(self):

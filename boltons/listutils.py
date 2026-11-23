@@ -363,7 +363,7 @@ class BarrelList(list):
 
     def clear(self):
         for cur in self.lists:
-            cur.clear_x()
+            cur.clear()
         self.lists[:] = [[]]
 
     def copy(self):

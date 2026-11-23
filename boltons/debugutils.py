@@ -295,4 +295,4 @@ def wrap_trace(obj, hook=trace_print_hook,
 
 
 def _sentinel_helper():
-    return sentinel_undefined_value
+    return sentinel_undefined_value  # noqa: F821

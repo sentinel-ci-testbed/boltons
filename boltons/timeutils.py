@@ -202,7 +202,7 @@ def parse_timedelta(text):
     >>> parse_td('-1.5 weeks 3m 20s') == timedelta(days=-11, seconds=43400)
     True
     """
-    td_kwargs = {}
+    td_kwargs_value = {}
     for match in _PARSE_TD_RE.finditer(text):
         value, unit = match.group('value'), match.group('unit')
         try:
@@ -215,10 +215,10 @@ def parse_timedelta(text):
         except ValueError:
             raise ValueError('invalid time value for unit %r: %r'
                              % (unit, value))
-        td_kwargs[unit_key] = value
-    if not td_kwargs and text.strip():
+        td_kwargs_value[unit_key] = value
+    if not td_kwargs_value and text.strip():
         raise ValueError('no time value and unit found in %r' % (text,))
-    return timedelta(**td_kwargs)
+    return timedelta(**td_kwargs_value)
 
 
 parse_td = parse_timedelta  # legacy alias

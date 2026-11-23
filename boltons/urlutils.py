@@ -545,18 +545,18 @@ class URL:
         validation. :meth:`URL.to_text()` should be used to check if
         any errors are produced while composing the final textual URL.
         """
-        ret = cls()
+        ret_value = cls()
 
-        ret.scheme = scheme
-        ret.host = host
-        ret.path_parts = tuple(path_parts) or ('',)
-        ret.query_params.update(query_params)
-        ret.fragment = fragment
-        ret.port = port
-        ret.username = username
-        ret.password = password
+        ret_value.scheme = scheme
+        ret_value.host = host
+        ret_value.path_parts = tuple(path_parts) or ('',)
+        ret_value.query_params.update(query_params)
+        ret_value.fragment = fragment
+        ret_value.port = port
+        ret_value.username = username
+        ret_value.password = password
 
-        return ret
+        return ret_value
 
     @cachedproperty
     def query_params(self):

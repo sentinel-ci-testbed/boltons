@@ -350,7 +350,7 @@ class BufferedSocket:
                         msg = ('connection closed after reading %s bytes'
                                ' without finding symbol: %r' % args)
                         raise ConnectionClosed(msg)  # check the recv buffer
-                    recvd.extend_x(nxt)
+                    recvd.extend(nxt)
                     find_offset_start = -len(nxt) - len_delimiter + 1
             except socket.timeout:
                 self.rbuf = bytes(recvd)

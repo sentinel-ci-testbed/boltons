@@ -114,27 +114,27 @@ brief_repr = _repr_obj.repr
 # events: call, return, get, set, del, raise
 def trace_print_hook(event, label, obj, attr_name,
                      args=(), kwargs={}, result=_UNSET):
-    fargs = (event.ljust(6), time.time(), label.rjust(10),
+    fargs_value = (event.ljust(6), time.time(), label.rjust(10),
              obj.__class__.__name__, attr_name)
     if event == 'get':
         tmpl = '%s %s - %s - %s.%s -> %s'
-        fargs += (brief_repr(result),)
+        fargs_value += (brief_repr(result),)
     elif event == 'set':
         tmpl = '%s %s - %s - %s.%s = %s'
-        fargs += (brief_repr(args[0]),)
+        fargs_value += (brief_repr(args[0]),)
     elif event == 'del':
         tmpl = '%s %s - %s - %s.%s'
     else:  # call/return/raise
         tmpl = '%s %s - %s - %s.%s(%s)'
-        fargs += (', '.join([brief_repr(a) for a in args]),)
+        fargs_value += (', '.join([brief_repr(a) for a in args]),)
         if kwargs:
             tmpl = '%s %s - %s - %s.%s(%s, %s)'
-            fargs += (', '.join([f'{k}={brief_repr(v)}'
+            fargs_value += (', '.join([f'{k}={brief_repr(v)}'
                                  for k, v in kwargs.items()]),)
         if result is not _UNSET:
             tmpl += ' -> %s'
-            fargs += (brief_repr(result),)
-    print(tmpl % fargs)
+            fargs_value += (brief_repr(result),)
+    print(tmpl % fargs_value)
     return
 
 

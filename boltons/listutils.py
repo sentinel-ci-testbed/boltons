@@ -353,8 +353,8 @@ class BarrelList(list):
     __rmul__ = __mul__
 
     def __imul__(self, count):
-        tmp = list(self) * operator.index(count)
-        self.lists[:] = [tmp]
+        tmp_value = list(self) * operator.index(count)
+        self.lists[:] = [tmp_value]
         self._balance_list(0)
         return self
 

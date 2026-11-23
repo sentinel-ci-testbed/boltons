@@ -166,7 +166,7 @@ class JSONLIterator:
             self._init_rel_seek()
         if self._reverse:
             self._line_iter = reverse_iter_lines(self._file_obj,
-                                                 blocksize=self._blocksize,
+                                                 blocksize=self._blocksize_x,
                                                  preseek=False)
         else:
             # readline() (unlike next()) keeps tell() usable on text files

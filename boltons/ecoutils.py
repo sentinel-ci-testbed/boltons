@@ -259,20 +259,20 @@ START_TIME_INFO = {'time_utc': str(datetime.datetime.now(datetime.timezone.utc))
 
 
 def get_python_info():
-    ret = {}
-    ret['argv'] = _escape_shell_args(sys.argv)
-    ret['bin'] = sys.executable
+    ret_value = {}
+    ret_value['argv'] = _escape_shell_args(sys.argv)
+    ret_value['bin'] = sys.executable
 
     # Even though compiler/build_date are already here, they're
     # actually parsed from the version string. So, in the rare case of
     # the unparsable version string, we're still transmitting it.
-    ret['version'] = ' '.join(sys.version.split())
+    ret_value['version'] = ' '.join(sys.version.split())
 
-    ret['compiler'] = platform.python_compiler()
-    ret['build_date'] = platform.python_build()[1]
-    ret['version_info'] = list(sys.version_info)
+    ret_value['compiler'] = platform.python_compiler()
+    ret_value['build_date'] = platform.python_build()[1]
+    ret_value['version_info'] = list(sys.version_info)
 
-    ret['features'] = {'openssl': OPENSSL_VERSION,
+    ret_value['features'] = {'openssl': OPENSSL_VERSION,
                        'expat': EXPAT_VERSION,
                        'sqlite': SQLITE_VERSION,
                        'tkinter': TKINTER_VERSION,
@@ -284,7 +284,7 @@ def get_python_info():
                        'threading': HAVE_THREADING,
                        'urandom': HAVE_URANDOM}
 
-    return ret
+    return ret_value
 
 
 def get_profile(**kwargs):

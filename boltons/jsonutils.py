@@ -77,9 +77,9 @@ def reverse_iter_lines(file_obj, blocksize=DEFAULT_BLOCKSIZE, preseek=True, enco
     encoding = encoding or getattr(file_obj, 'encoding', None)
 
     # need orig_obj to keep alive otherwise __del__ on the TextWrapper will close the file
-    orig_obj = file_obj
+    orig_obj_value = file_obj
     try:
-        file_obj = orig_obj.buffer
+        file_obj = orig_obj_value.buffer
     except (AttributeError, io.UnsupportedOperation):
         pass
 

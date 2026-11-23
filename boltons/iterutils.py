@@ -1585,8 +1585,8 @@ class SequentialGUIDerator(GUIDerator):
 
     def reseed(self):
         super().reseed()
-        start_str = self._sha1(self.salt.encode('utf8')).hexdigest()
-        self.start = int(start_str[:self.size], 16)
+        start_str_value = self._sha1(self.salt.encode('utf8')).hexdigest()
+        self.start = int(start_str_value[:self.size], 16)
         self.start |= (1 << ((self.size * 4) - 2))
 
     def __next__(self):

@@ -137,8 +137,8 @@ class _StatsProperty:
         self.func = func
         self.internal_name = '_' + name
 
-        doc = func.__doc__ or ''
-        pre_doctest_doc, _, _ = doc.partition('>>>')
+        doc_value = func.__doc__ or ''
+        pre_doctest_doc, _, _ = doc_value.partition('>>>')
         self.__doc__ = pre_doctest_doc
 
     def __get__(self, obj, objtype=None):

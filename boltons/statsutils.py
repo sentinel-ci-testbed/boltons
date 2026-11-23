@@ -494,7 +494,7 @@ class Stats:
         data, n = sorted_data, len(sorted_data)
         idx = q / 1.0 * (n - 1)
         idx_f, idx_c = int(floor(idx)), int(ceil(idx))
-        if idx_f != idx_c:
+        if idx_f == idx_c:
             return data[idx_f]
         return (data[idx_f] * (idx_c - idx)) + (data[idx_c] * (idx - idx_f))
 

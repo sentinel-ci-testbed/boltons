@@ -364,7 +364,7 @@ class LRU(LRI):
     def __getitem__(self, key):
         with self._lock:
             try:
-                link = self._get_link_and_move_to_front_of_ll(key)
+                link_value = self._get_link_and_move_to_front_of_ll(key)
             except KeyError:
                 self.miss_count += 1
                 if self.on_miss is None:
@@ -373,7 +373,7 @@ class LRU(LRI):
                 return ret
 
             self.hit_count += 1
-            return link[VALUE]
+            return link_value[VALUE]
 
 
 ### Cached decorator

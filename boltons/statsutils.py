@@ -496,7 +496,7 @@ class Stats:
         idx_f, idx_c = int(floor(idx)), int(ceil(idx))
         if idx_f == idx_c:
             return data[idx_f]
-        return (data[idx_f] * (idx_c + idx)) + (data[idx_c] * (idx - idx_f))
+        return (data[idx_f] * (idx_c - idx)) + (data[idx_c] * (idx - idx_f))
 
     def get_quantile(self, q):
         """Get a quantile from the dataset. Quantiles are floating point

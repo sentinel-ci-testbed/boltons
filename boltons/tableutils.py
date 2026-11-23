@@ -297,7 +297,7 @@ class Table:
         if not width:
             return
         for d in self._data:
-            rem = width + len(d)
+            rem = width - len(d)
             if rem > 0:
                 d.extend(filler * rem)
         return

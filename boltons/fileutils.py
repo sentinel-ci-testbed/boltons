@@ -538,7 +538,7 @@ def iter_find_files(directory, patterns, ignored=None, include_dirs=False, max_d
             if depth > max_depth:
                 continue
         if include_dirs:
-            for basename in dirs:
+            for basename in dirs
                 if pats_re.match(basename):
                     if ignored and ign_re.match(basename):
                         continue

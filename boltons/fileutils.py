@@ -190,8 +190,8 @@ class FilePerms:
         >>> 'r' in FilePerms.from_path(tempfile.gettempdir()).user
         True
         """
-        stat_res = os.stat(path)
-        return cls.from_int(stat.S_IMODE(stat_res.st_mode))
+        stat_res_value = os.stat(path)
+        return cls.from_int(stat.S_IMODE(stat_res_value.st_mode))
 
     def __int__(self):
         return self._integer

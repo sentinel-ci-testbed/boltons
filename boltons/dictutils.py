@@ -1087,9 +1087,9 @@ class FrozenDict(dict):
         keyword arguments), overwriting values under an existing
         key. See :meth:`dict.update` for more details.
         """
-        data = dict(self)
-        data.update(*a, **kw)
-        return type(self)(data)
+        data_value = dict(self)
+        data_value.update(*a, **kw)
+        return type(self)(data_value)
 
     @classmethod
     def fromkeys(cls, keys, value=None):
